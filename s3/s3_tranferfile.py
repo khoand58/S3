@@ -15,14 +15,14 @@ import sys
 # endpoint_url = 'http://172.27.64.165:9020'
 # use_ssl = False
 
-bucket_name = 'test-s3'
+# bucket_name = 'test-s3'
 # bucket name : test-s3
 # accesskey : testuser
 # secretkey : TbriQlpXm4ghPLKslhS6nkKr6+pVrB2y6+Tta3UM
 # SrAvilaSeason1_2013_MX_001.mp4
-aws_access_key_id = 'testuser'
-aws_secret_access_key = 'TbriQlpXm4ghPLKslhS6nkKr6+pVrB2y6+Tta3UM'
-endpoint_url = 'http://172.20.2.90:9020'
+aws_access_key_id = 'root'
+aws_secret_access_key = 'ClpygUZVXMNYnqY0aTcd1b3txnFwWW/lITERNeRf'
+endpoint_url = 'http://172.27.64.165:9020'
 use_ssl = False
 s3_resource = boto3.resource('s3', aws_access_key_id=aws_access_key_id, aws_secret_access_key=aws_secret_access_key,
                              endpoint_url=endpoint_url, use_ssl=False, )
@@ -37,20 +37,20 @@ config = TransferConfig(multipart_threshold=1024 * 25,
 
 
 # Function to upload the file to s3 using multipart functionality
-def multipart_upload_boto3():
-    file_path = os.path.dirname(__file__) + '/test.pdf'
-    key = 'vod/test.pdf'
+def multipart_upload_boto3(bucket_name, key_file, name_file, type_file, path_upload):
+    file_path = path_upload + name_file
+    key = key_file
 
     s3_resource.Object(bucket_name, key).upload_file(file_path,
-                                                     ExtraArgs={'ContentType': 'text/pdf'},
+                                                     ExtraArgs={'ContentType': type_file},
                                                      Config=config,
                                                      Callback=ProgressPercentage(file_path)
                                                      )
 
 
 # Function to download the file to s3 using multipart functionality
-def multipart_download_boto3(name_file, key_file):
-    file_path = os.path.dirname(__file__) + name_file
+def multipart_download_boto3(bucket_name, name_file, key_file, path_save):
+    file_path = path_save + name_file
     print(os.path.dirname(__file__))
     file_path1 = os.path.dirname(__file__)
     # file_path1 = 'C:\\Users\\FPT\\OneDrive\\Desktop\\'
@@ -82,6 +82,6 @@ class ProgressPercentage(object):
             sys.stdout.flush()
 
 
-if __name__ == '__main__':
+# if __name__ == '__main__':
     # multipart_upload_boto3()
-    multipart_download_boto3('/VOD/ADSL/VOD/01_Test/', 'VOD/ADSL/VOD/01_Test/KnightsAndMagic_2017_JP_ok.mp4')
+    # multipart_download_boto3('/VOD/ADSL/VOD/01_Test/', 'VOD/ADSL/VOD/01_Test/KnightsAndMagic_2017_JP_ok.mp4')
