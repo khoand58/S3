@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>S3</class>
+ <widget class="QMainWindow" name="S3">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="layoutDirection">
+   <enum>Qt::RightToLeft</enum>
+  </property>
+  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionUpfile"/>
+    <addaction name="actionDowfile"/>
+   </widget>
+   <widget class="QMenu" name="menuFolder">
+    <property name="title">
+     <string>Folder</string>
+    </property>
+    <addaction name="actionUpfolder"/>
+    <addaction name="actionDownfolder"/>
+   </widget>
+   <widget class="QMenu" name="menuAccount">
+    <property name="title">
+     <string>Account</string>
+    </property>
+    <addaction name="actionReset_password"/>
+    <addaction name="actionChange_password"/>
+    <addaction name="actionProfile"/>
+    <addaction name="actionLogout"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuFolder"/>
+   <addaction name="menuAccount"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionUpfile">
+   <property name="text">
+    <string>Upfile</string>
+   </property>
+  </action>
+  <action name="actionDowfile">
+   <property name="text">
+    <string>Dowfile</string>
+   </property>
+  </action>
+  <action name="actionUpfolder">
+   <property name="text">
+    <string>Upfolder</string>
+   </property>
+  </action>
+  <action name="actionDownfolder">
+   <property name="text">
+    <string>Downfolder</string>
+   </property>
+  </action>
+  <action name="actionReset_password">
+   <property name="text">
+    <string>Reset password</string>
+   </property>
+  </action>
+  <action name="actionChange_password">
+   <property name="text">
+    <string>Change password</string>
+   </property>
+  </action>
+  <action name="actionProfile">
+   <property name="text">
+    <string>Profile</string>
+   </property>
+  </action>
+  <action name="actionLogout">
+   <property name="text">
+    <string>Logout</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
